@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DS Formation — Centre de Formation Professionnelle à Paris</title>
+  <meta name="description" content="DS Formation, centre de formation professionnelle certifié Qualiopi. Excel, marketing digital, cybersécurité, gestion d'entreprise. Financement CPF, OPCO. Formations à Paris et en ligne.">
+  <link rel="canonical" href="https://dsformation.fr/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DS Formation">
+  <meta property="og:title" content="DS Formation — Centre de Formation Professionnelle à Paris">
+  <meta property="og:description" content="Centre de formation certifié Qualiopi. Excel, marketing digital, cybersécurité, gestion d'entreprise. Financement CPF & OPCO. Formations à Paris et en ligne.">
+  <meta property="og:url" content="https://dsformation.fr/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1200&q=80">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DS Formation — Centre de Formation Professionnelle à Paris">
+  <meta name="twitter:description" content="Centre de formation certifié Qualiopi. Excel, marketing digital, cybersécurité. Financement CPF & OPCO.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* INDEX-SPECIFIC */
+    .hero-split {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 100px;
+    }
+    .hero-left {
+      background: var(--gradient-p);
+      display: flex;
+      align-items: center;
+      padding: 80px 60px 80px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-left::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+      background-size: 44px 44px;
+    }
+    .hero-left-content { position: relative; z-index: 1; }
+    .hero-left h1 { color: var(--white); margin-bottom: 24px; line-height: 1.12; }
+    .hero-left h1 span {
+      background: var(--gradient-a);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-left p { color: rgba(255,255,255,.78); font-size: 1.15rem; margin-bottom: 40px; max-width: 460px; }
+    .hero-left-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-right {
+      position: relative; overflow: hidden;
+    }
+    .hero-right img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .hero-right::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(13,33,71,.3) 0%, transparent 60%);
+    }
+
+    /* PILLARS STRIP */
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      background: var(--white);
+      border-bottom: 1px solid rgba(13,33,71,.08);
+      box-shadow: var(--shadow);
+    }
+    .pillar-item {
+      padding: 36px 32px;
+      border-right: 1px solid rgba(13,33,71,.08);
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+    }
+    .pillar-item:last-child { border-right: none; }
+    .pillar-num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .pillar-item h4 { color: var(--primary); margin-bottom: 6px; }
+    .pillar-item p  { font-size: .88rem; line-height: 1.7; }
+
+    /* PROCESS */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 0;
+      position: relative;
+    }
+    .process-grid::before {
+      content: '';
+      position: absolute;
+      top: 32px; left: 12%;
+      width: 76%;
+      height: 2px;
+      background: linear-gradient(to right, var(--accent), var(--accent-dark));
+      z-index: 0;
+    }
+    .process-step { text-align: center; position: relative; z-index: 1; padding: 0 16px; }
+    .step-num {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: var(--gradient-a);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--white); font-size: 1.4rem; font-weight: 800;
+      margin: 0 auto 20px;
+      box-shadow: 0 4px 16px rgba(232,148,14,.35);
+    }
+    .process-step h4 { color: var(--primary); margin-bottom: 8px; }
+    .process-step p  { font-size: .88rem; line-height: 1.7; }
+
+    @media (max-width: 1024px) {
+      .hero-split { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .hero-left  { padding: 80px 32px; text-align: center; }
+      .hero-left p { margin: 0 auto 40px; }
+      .hero-left-actions { justify-content: center; }
+      .pillars { grid-template-columns: 1fr; }
+      .pillar-item { border-right: none; border-bottom: 1px solid rgba(13,33,71,.08); }
+      .pillar-item:last-child { border-bottom: none; }
+      .process-grid { grid-template-columns: repeat(2,1fr); gap: 30px; }
+      .process-grid::before { display: none; }
+    }
+    @media (max-width: 640px) {
+      .process-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<!-- HERO SPLIT -->
+<section class="hero-split">
+  <div class="hero-left">
+    <div class="hero-left-content">
+      <div class="badge badge-white">Centre de formation professionnelle</div>
+      <h1>Des formations<br>qui font la <span>différence</span></h1>
+      <p>DS Formation accompagne professionnels et entreprises avec des programmes concrets, animés par des experts du terrain. Résultats visibles dès la reprise du poste.</p>
+      <div class="hero-left-actions">
+        <a href="formations.html" class="btn btn-primary btn-lg">Voir nos formations</a>
+        <a href="contact.html" class="btn btn-outline btn-lg">Demander un devis</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=900&q=80" alt="Formation professionnelle">
+  </div>
+</section>
+
+<!-- PILLIERS -->
+<div class="pillars">
+  <div class="pillar-item">
+    <div class="pillar-num">01</div>
+    <div>
+      <h4>Financements disponibles</h4>
+      <p>Toutes nos formations sont éligibles OPCO et France Travail. Notre équipe gère vos démarches.</p>
+    </div>
+  </div>
+  <div class="pillar-item">
+    <div class="pillar-num">02</div>
+    <div>
+      <h4>Formateurs experts terrain</h4>
+      <p>Nos formateurs exercent en parallèle leur métier. Vous apprenez ce qui fonctionne vraiment en entreprise.</p>
+    </div>
+  </div>
+  <div class="pillar-item">
+    <div class="pillar-num">03</div>
+    <div>
+      <h4>100% opérationnel</h4>
+      <p>Chaque module est ancré dans des cas concrets. Vous appliquez le jour même, sans attendre.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FORMATIONS -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="section-header">
+      <div class="badge">Nos formations</div>
+      <h2>Des programmes conçus pour votre réussite</h2>
+      <p>Sept formations professionnelles finançables CPF, disponibles en présentiel, distanciel ou hybride.</p>
+    </div>
+    <div class="formations-grid">
+
+      <div class="formation-card">
+        <div class="formation-card-header">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=75" alt="Excel Formation">
+          <div class="formation-card-header-overlay">
+            <div class="formation-icon">XL</div>
+            <h3>Excel avancé &amp; automatisation</h3>
+            <div class="formation-meta">
+              <span class="meta-tag">21h</span>
+              <span class="meta-tag">Présentiel / Distanciel</span>
+            </div>
+          </div>
+        </div>
+        <div class="formation-card-body">
+          <p>Formules avancées, tableaux croisés dynamiques, Power Query et macros VBA pour transformer votre productivité.</p>
+          <ul class="formation-highlights">
+            <li>Formules avancées et fonctions imbriquées</li>
+            <li>Tableaux croisés dynamiques et Power Query</li>
+            <li>Macros VBA et automatisation</li>
+          </ul>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a href="formation-excel.html" class="btn btn-primary btn-sm">Voir le programme</a>
+            <a href="contact.html" class="btn btn-outline-amber btn-sm">Sur devis</a>
+          </div>
+        </div>
+      </div>
+
+      <!--1-->
+      
+      <div class="formation-card">
+        <div class="formation-card-header">
+          <img src="https://www.inll.lu/wp-content/uploads/2022/08/iStock-623607850-1536x1024.jpg" alt="Langues">
+          <div class="formation-card-header-overlay">
+            <div class="formation-icon">MD</div>
+            <h3>Langues (Français, Anglais, Arabe)</h3>
+            <div class="formation-meta">
+              <span class="meta-tag">/</span>
+              <span class="meta-tag">Distanciel</span>
+            </div>
+          </div>
+        </div>
+        <div class="formation-card-body">
+          <p>Apprenez les langues les plus parlés dans le monde.</p>
+          <ul class="formation-highlights">
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a href="formation-marketing-digital.html" class="btn btn-primary btn-sm">Voir le programme</a>
+            <a href="contact.html" class="btn btn-outline-amber btn-sm">Sur devis</a>
+          </div>
+        </div>
+      </div>
+
+      <!--2-->
+      
+    </div>
+    <div class="text-center mt-32">
+      <a href="formations.html" class="btn btn-outline-dark btn-lg">Voir toutes les formations</a>
+    </div>
+  </div>
+</section>
+
+<!-- POURQUOI DS FORMATION -->
+<section class="section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center">
+      <div>
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=700&q=80" alt="Formation DS" style="border-radius:var(--radius-lg);width:100%;height:420px;object-fit:cover;box-shadow:var(--shadow-lg)">
+      </div>
+      <div>
+        <div class="badge">Pourquoi nous choisir</div>
+        <h2 style="color:var(--primary);margin-bottom:24px">Une approche différente de la formation</h2>
+        <p style="font-size:1.05rem;margin-bottom:32px">Chez DS Formation, nous croyons qu'une formation doit changer concrètement les pratiques. Nos programmes sont bâtis par des professionnels pour des professionnels.</p>
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <div style="display:flex;align-items:flex-start;gap:16px">
+            <div style="width:40px;height:40px;background:var(--gradient-a);border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-weight:800;flex-shrink:0">1</div>
+            <div>
+              <h4 style="color:var(--primary);margin-bottom:4px">Des formateurs praticiens</h4>
+              <p style="font-size:.9rem">Chaque formateur exerce son métier en parallèle. Pas de théoriciens : uniquement des experts actifs sur le terrain.</p>
+            </div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:16px">
+            <div style="width:40px;height:40px;background:var(--gradient-a);border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-weight:800;flex-shrink:0">2</div>
+            <div>
+              <h4 style="color:var(--primary);margin-bottom:4px">Petits groupes, grande efficacité</h4>
+              <p style="font-size:.9rem">Maximum 8 participants par session pour garantir un accompagnement personnalisé et des échanges de qualité.</p>
+            </div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:16px">
+            <div style="width:40px;height:40px;background:var(--gradient-a);border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-weight:800;flex-shrink:0">3</div>
+            <div>
+              <h4 style="color:var(--primary);margin-bottom:4px">Suivi de 30 jours inclus</h4>
+              <p style="font-size:.9rem">Après votre formation, notre équipe reste disponible pendant 30 jours pour répondre à vos questions et consolider vos acquis.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMENT CA MARCHE -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="section-header">
+      <div class="badge">En 4 étapes</div>
+      <h2>Comment ça fonctionne</h2>
+      <p>De votre premier contact à l'obtention de votre attestation, nous vous accompagnons à chaque étape.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <h4>Bilan gratuit</h4>
+        <p>Un conseiller identifie vos besoins et vous oriente vers la formation la mieux adaptée à votre profil et vos objectifs.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <h4>Financement</h4>
+        <p>Nous identifions ensemble le meilleur dispositif de financement (OPCO, France Travail) et gérons le dossier pour vous.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <h4>Formation</h4>
+        <p>Vous suivez votre programme avec un formateur expert, en présentiel ou à distance, sur le calendrier qui vous convient.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <h4>Certification</h4>
+        <p>Vous obtenez votre attestation de formation et bénéficiez d'un suivi post-formation de 30 jours pour ancrer vos acquis.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINANCEMENTS -->
+<div class="financing-strip">
+  <div class="financing-strip-inner">
+    <div class="financing-text">
+      <h2>Votre formation peut être financée à 100%</h2>
+      <p>Grâce au OPCO, France Travail ou financement de l'entreprisela plupart de nos formations sont accessibles sans reste à charge.</p>
+      <div class="financing-badges">
+
+        <!--<span class="fin-badge">CPF</span>-->
+        <span class="fin-badge">OPCO</span>
+        <span class="fin-badge">France Travail</span>
+        <!--<span class="fin-badge">FAF</span>-->
+        <span class="fin-badge">Plan de formation</span>
+      </div>
+    </div>
+    <a href="financements.html" class="btn btn-primary btn-lg">En savoir plus</a>
+  </div>
+</div>
+
+<!-- TEMOIGNAGES -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="badge">Témoignages</div>
+      <h2>Ce que disent nos apprenants</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"La formation Excel a totalement changé ma façon de travailler. Des tâches qui me prenaient 2 heures se font maintenant en 20 minutes. Le formateur était exceptionnel, pédagogue et toujours disponible."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">SL</div>
+          <div class="author-info">
+            <strong>Sophie L.</strong>
+            <span>Contrôleuse de gestion</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"J'ai suivi la formation marketing digital pour développer mon activité. En 3 mois, mon chiffre d'affaires a augmenté de 40% grâce aux stratégies apprises. Je recommande sans réserve."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">MK</div>
+          <div class="author-info">
+            <strong>Mehdi K.</strong>
+            <span>Auto-entrepreneur, Lyon</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Formation gestion d'entreprise très complète. Les cas pratiques m'ont permis de prendre rapidement de meilleures décisions. Investissement rentabilisé en moins de 2 mois."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">AB</div>
+          <div class="author-info">
+            <strong>Antoine B.</strong>
+            <span>Dirigeant TPE, Paris</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-banner">
+  <div class="cta-banner-inner">
+    <div class="badge badge-white">Passez à l'action</div>
+    <h2>Prêt à développer vos compétences ?</h2>
+    <p>Contactez notre équipe pour un bilan personnalisé gratuit et un devis adapté à votre situation.</p>
+    <div class="cta-actions">
+      <a href="contact.html" class="btn btn-white btn-lg">Demander un devis gratuit</a>
+      <a href="formations.html" class="btn btn-outline btn-lg">Voir les formations</a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="js/components.js"></script>
+</body>
+</html>
